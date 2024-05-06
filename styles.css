@@ -1,0 +1,1140 @@
+/*----------------------GENERELL STYLING FÖR HELA WEBBSIDAN-----------------------*/
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    display: flex; 
+    flex-direction: column;
+    color: #fff;
+    font-family: "roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+main {
+    width: 100%;
+    margin: auto;
+    margin: 0;
+}
+
+/* HEADER: Header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    background-color: #000;
+    }
+
+header a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-family: "roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2vw;
+}
+
+header a::before {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 0;
+	height: 0.2vw;
+	background: #fff;
+	transition: .3s;
+}
+
+header a:hover::before {
+	width: 100%;
+}
+
+/* HEADER: Navbar */
+.navbar {
+    width: 100%;
+    height: 11vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* HEADER: Navbar: Skulptören logotyp */
+.navbar .logo {
+    list-style-type: none;
+    padding-left: 2vw;
+}
+
+.navbar .logo a:hover::before {
+    width:0%;
+}
+
+.navbar .logo img {
+    width: 5vw;
+    padding-bottom: 1.5vh;
+}
+
+/* HEADER: Navbar: Relativa länkar till de andra sidorna */
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4vw;
+    list-style-type: none;
+    padding-right: 3vw;
+}
+
+.navbar .toggle-btn { /* Förklaring */
+    display: none;
+    font-size: 4vw;
+    padding-right: 3vw;
+}
+
+/* HEADER: Navbar: Dropdownmeny */
+.dropdown-menu { /* Menyn blir till en dropdownmeny när skärmstorleken minskas */
+    display: none;
+    position: fixed;
+    top: 5vh;
+    height: 0;
+    width: 100%;
+    background: #000;
+    overflow: hidden; /* Förklaring */
+    transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275) /* Förklaring */
+}
+
+.dropdown-menu.open { /* Förklaring */
+   height: auto;
+   z-index: 5;
+}
+
+.dropdown-menu li { /* Styling av länkarna */
+    padding: 1vh;
+    list-style-type: none;
+    font-size: 5vw;
+}
+
+/* HEADER: Knapp "Till biljetter */
+.button1 {
+    position: relative;
+    padding: 1vw 2vw;
+    font-size: 1.5vw;
+    font-family: "roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #fff;
+    background-color: #000;
+    border-radius: 1vw;
+    border: none;
+}
+
+.button1 a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.button1 a::before {
+	content: '';
+	position: absolute;
+	top: 80%;
+	left: 2vw;
+	width: 0;
+	height: 0.2vw;
+	background: #fff;
+	transition: .3s;
+}
+
+.button1 a:hover::before {
+	width: 70%;
+}
+
+/* FOOTER */
+footer {
+  background-color: #000;
+  height: 8vh;
+}
+
+/* FOOTER: Stor container för socials + länkar */
+.bigfootercontainer {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    'footernav'
+    'copyright';
+    row-gap: 0vh;
+}
+
+/* FOOTER: Liten container för länkar inom den stora containern */
+.footernav {
+    grid-area: footernav;
+    margin-top: 6vh;
+    margin-bottom: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.footernav ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.footernav li{
+    list-style-type: none; 
+    padding-right: 3.8vw;
+}
+
+.footernav ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 2vw;
+    font-weight: 300;
+}
+
+.footernav a{
+    position: relative;
+}
+
+.footernav a::before {
+    content: '';
+	position: absolute; 
+	top: 100%;
+	left: 0;
+	width: 0;
+	height: 0.2vh;
+	background: #fff;
+	transition: .3s;
+}
+
+.footernav a:hover::before {
+    width: 100%;
+}
+
+/* FOOTER: Copyright */
+.copyright {
+    padding-bottom: 0.2vh;
+    margin: 0;
+    text-align: center;
+    grid-area: copyright;
+}
+
+/* FOOTER: Copyright: Text */
+.copyright-text {
+    font-size: 0.8vw;
+    text-align: center;
+}
+
+/* FOOTER: Copyright: Namn */
+.designer {
+    font-size: 0.8vw;
+    opacity:0.7;
+    font-weight: 400;
+    margin: 0vw 0.5vw;
+    text-align: center;
+}
+
+@media (max-width: 992px) {
+    .navbar .logo img {
+        width: 6vw;
+        padding-top: 2vh;
+        padding-left: 1vw;
+    }
+
+    .navbar .nav-links {
+        display: none;
+    }
+    .navbar .toggle-btn {
+        display: block;
+    }
+    .dropdown-menu {
+        display: block;
+        width: 100%;
+    }
+    .footernav ul{
+        flex-direction: column;
+        text-align: center;
+        display: inline-block;
+    }
+    .footernav ul li{
+        margin: 2vh;
+    }
+    .footernav ul li a{
+        font-size: 3vw;
+    }
+
+    .copyright-text {
+        font-size: 2vw;
+        text-align: center;
+    }
+    .designer {
+        font-size: 1.8vw;
+        text-align: center;
+    }
+}
+
+/*------------------------------STYLING AV INDEX-SIDA-----------------------------*/
+.index-main {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+#section-one-indexsite {
+    background-image: url(bilder/arbis-background.webp);
+    background-size: cover;
+    background-position: center center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vw;
+    height: 100vh;
+    width: auto;
+    position: relative;
+}
+
+/* H2 */
+.index-main h2 {
+    font-size: 6vw;
+    font-family: "baskerville-display-pt", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 0.8vh;
+}
+
+/* Countdown */
+.countdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column: span 4;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "roboto", sans-serif;
+    font-size: 1vw;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.2vw;
+    margin-top: 4vh;
+}
+
+/* Countdown: Text "DAGAR TIMMAR MINUTER SEKUNDER */
+.countdown >span { /* Om en span är inuti .countdown ska den ha 60pt som fontsize, utan > får både .countdown + span 60pt i fontsize eller så får span "generell styling" */
+    font-size: 8vw;
+}
+
+#nedraknare-dagar {
+    grid-column: 1;
+}
+
+#nedraknare-timmar {
+    grid-column: 2;
+}
+
+#nedraknare-minuter {
+    grid-column: 3;
+}
+
+#nedraknare-sekunder {
+    grid-column: 4;
+}
+
+/* Styling av scrollknapp */
+.button-scroll-index {
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    margin-top: 17vh;
+}
+
+.down-arrow-index {
+    width: 12vw;
+}
+
+/* Gradient */
+#section-three-indexsite {
+    background-color: #8b0101;
+    background: linear-gradient(0deg, #8b0101 -20%, #010101 33%); /* deg = degrees/lutning av gradient) */
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#section-empty-indexsite {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 35vh;
+    margin-top: 0vh;
+    padding: 0vh;
+}
+
+#trailer {
+    width: 100%;
+    height: auto;
+    padding-bottom: 42vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+video {
+    width: 40%;
+    height: auto;
+}
+
+/* Till biljetter knapp */
+.button-index {
+    padding-top: 2vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.button1 {
+    color:#fff;
+    background-color: #931f1f;
+}
+
+@media(max-width: 992px) {
+    #filmtitel {
+        justify-content: center;
+        align-items: center;
+        grid-column: span 4;
+        text-align: center;
+        font-size: 10vw;
+        padding-top: 20vw;
+        padding-bottom: 2vw;
+    }
+
+    .countdown {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw;
+        grid-template-areas: 
+        'nedraknare-dagar'
+        'dd'
+        'nedraknare-timmar'
+        'tt'
+        'nedraknare-minuter'
+        'mm'
+        'nedraknare-sekunder'
+        'ss';
+        grid-gap: 6.3vw;
+        font-size: 2.5vw;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #nedraknare-dagar {
+        grid-area: nedraknare-dagar;
+        font-size: 10.5vw;
+     }
+
+     #nedraknare-timmar {
+        grid-area: nedraknare-timmar;
+        font-size: 10.5vw;
+     }
+
+     #nedraknare-minuter {
+        grid-area: nedraknare-minuter;
+        font-size: 10.5vw;
+     }
+
+     #nedraknare-sekunder {
+        grid-area: nedraknare-sekunder;
+        font-size: 10.5vw;
+     }
+
+     #dd {
+        grid-area: dd;
+        padding-top: 0;
+        margin-top: 0;
+     }
+
+     #tt {
+        grid-area: tt;
+        padding-top: 0;
+        margin-top: 0;
+     }
+
+     #mm {
+        grid-area: mm;
+        padding-top: 0;
+        margin-top: 0;
+     }
+
+     #ss {
+        grid-area: ss;
+        padding-top: 0;
+        margin-top: 0;
+     }
+
+    .button-index {
+        padding-top: 6.8vw;
+        color:#fff;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .button1 {
+        position: relative;
+        padding: 2vw 4vw;
+        font-size: 5vw;
+        font-family: "roboto", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        color: #fff;
+        background-color: #931f1f;
+        border-radius: 25vw;
+        border: none;
+    }
+
+    .button1 a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .button1 a::before {
+        content: '';
+        position: absolute;
+        top: 80%;
+        left: 2vw;
+        width: 0;
+        height: 0.2vw;
+        background: #fff;
+        transition: .3s;
+    }
+
+    .button1 a:hover::before {
+        width: 70%;
+    }
+
+    /* Gradient */
+    #section-three-indexsite {
+    background-color: #8b0101;
+    background: linear-gradient(0deg, #8b0101 -20%, #010101 35%); /* deg = degrees/lutning av gradient) */
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .trailer {
+        width: 80%;
+    }
+}
+
+/*------------------------------STYLING AV STORY-SIDA-----------------------------*/
+
+/* Grid */
+.layout {
+    justify-content: center;
+    margin-top: 0vh;
+    display: grid;
+	grid-template-columns: auto auto auto;
+    grid-template-areas: 
+    'text-storyline text-storyline foto-kanin'
+    '. button-scroll .'
+    'foto-lova text-lova text-lova'
+    'text-elin text-elin foto-elin'
+    'foto-tobias text-tobias text-tobias';
+	padding: 0vw;
+    padding-left: 15vw;
+    padding-right: 15vw;
+}
+
+.text-storyline {
+   grid-area: text-storyline;
+   width: 38vw;
+   margin-top: 3.8vw;
+   margin-left: 6.7vw;
+}
+
+#foto-kanin {
+   grid-area: foto-kanin;
+   margin-top: 0.1vh;
+   margin-left: 3vw;
+}
+
+#foto-kanin-id {
+    width: 30vw;
+}
+
+#foto-lova-id {
+    width: 30vw;
+}
+
+#foto-elin-id {
+    width: 30vw;
+}
+
+#foto-tobias-id {
+    width: 30vw;
+}
+
+#text-lova {
+  grid-area: text-lova;
+  padding-top: 15vh;
+  width: 38vw;
+  margin-left: 3vw;
+}
+
+#foto-lova {
+   grid-area: foto-lova;
+   padding-top: 11vh;
+   margin-left: 5.5vw;
+}
+
+/* Gör att bilderna förstoras när man hoverar över dem */
+#foto-lova img {
+    transition: 1s ease;
+}
+
+#foto-lova img:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 0.5s ease;
+    }
+
+#foto-elin img {
+    transition: 1s ease;
+    }
+    
+#foto-elin img:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 0.5s ease;
+    }
+
+#foto-tobias img {
+    transition: 1s ease;
+}
+        
+#foto-tobias img:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 0.5s ease;
+    }
+
+
+/* Kommentar */
+#text-elin {
+    grid-area: text-elin;
+    padding-top: 3vh;
+    width: 38vw;
+    margin-left: 6.5vw;
+}
+
+#foto-elin {
+    grid-area: foto-elin;
+    padding-top: 3.4vh;
+    margin-left: 3vw;
+}
+
+#text-tobias {
+    grid-area: text-tobias;
+    padding-top: 3vh;
+    width: 38vw;
+    margin-left: 3vw;
+}
+
+#foto-tobias {
+  grid-area: foto-tobias;
+  padding-top: 3.4vh;
+  margin-left: 5.8vw;
+}
+
+.h2-storysite {
+    font-size: 2.2vw;
+}
+
+.h3-storysite {
+    font-size: 2vw;
+    font-weight: 700;
+}
+
+#info-om-film {
+    font-weight: 400;
+    line-height: 1.6vw;
+    font-size: 1vw;
+}
+
+.p-storysite {
+    max-width: 100vw;
+    font-size: 1.2vw;
+    font-weight: 300;
+    line-height: 1.8vw;
+}
+
+.ig-link-story {
+    margin-top: 1.3vh;
+    width: 10%;
+    height: auto;
+}
+
+.fb-link-story {
+    margin-left: 0.6vw;
+    width: 10%;
+    height: auto;
+}
+
+/* Styling av scrollknapp */
+.button-scroll-story {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+}
+
+.scrollknapp-story {
+    grid-area: button-scroll;
+    padding-top: 3.4vh;
+}
+
+.down-arrow-story {
+    width: 4vw;
+    margin: 0;
+    padding-top: 1vw;
+    grid-area: button-scroll;
+    padding: 0vw;
+    margin: 0vw;
+}
+
+#section-gradient-story {
+    width: 100%;
+    height: 40vh;
+    background-color: #8b0101;
+    background: linear-gradient(0deg, #8b0101 -20%, #010101 80%); /* deg = degrees/lutning av gradient) */
+}
+
+.bold {
+    font-weight: 700;
+}
+
+@media(max-width: 992px) {
+    .layout { 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }    
+    
+    .p-storysite {
+        max-width: 30vh;
+        font-size: 3vw;
+        line-height: 2vh;
+    }
+
+    .h2-storysite {
+        font-size: 5vw;
+    }
+
+    .h3-storysite {
+        font-size: 4vw;
+    }
+
+    #info-om-film {
+        font-size: 2.5vw;
+        line-height: 1.8vh;
+    }
+
+    .scrollknapp-story {
+        padding-top: 1.2vh;
+    }
+    
+    .down-arrow-story {
+        width: 7vw;
+    }
+
+    #foto-lova {
+        padding-top: 20vh;
+        margin-bottom: 1vh;
+     }
+
+    #text-lova {
+    padding-top: 1vh;
+  }
+
+  #foto-lova-id {
+    width: 40vw;
+    }
+
+#foto-elin-id {
+    width: 40vw;
+    }
+
+#foto-tobias-id {
+    width: 40vw;
+    }
+
+  .ig-link-story {
+    width: 10vw;
+    padding-left: 4.5vw;
+    }
+
+.fb-link-story {
+    width: 10vw;
+    padding-left: 4.5vw;
+    }
+
+#section-gradient-story {
+    width: 100%;
+    height: 10vh;
+    }
+}
+
+/*------------------------------STYLING AV BILJETT-SIDA-----------------------------*/
+
+#section-one-biljetter {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.seat {
+    background-color: #444451;
+    height: 1.8vh;
+    width: 1.2vw;
+    margin: 0.2vw;
+    border-top-left-radius: 0.7vw;
+    border-top-right-radius: 0.7vw;
+}
+
+.row {
+    display: flex;
+}
+
+.biljetter-container1 {
+    font-style: normal;
+    text-align: center;
+    font-weight: 400;
+}
+
+#section-one-biljetter h2 {
+    font-family: "baskerville-display-pt", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4.5vw;
+    margin-bottom: 0.8vh;
+}
+
+.ingress-biljetter {
+    font-family: "roboto", sans-serif;
+    font-size: 1.2vw;
+    width: 50vw;
+    margin-top: 0vh;
+}
+
+.seat.selected {
+    background-color: #eadcc7;
+}
+
+.seat.occupied {
+    background-color: #8b0101;
+}
+
+.seat:nth-of-type(2) {
+    margin-right: 1.3vw;
+}
+
+.seat:nth-last-of-type(2) {
+    margin-left: 1.3vw;
+}
+
+.seat:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.showcase .seat:not(.occupied):hover {
+    cursor: default;
+    transform: scale(1);
+}
+
+.showcase {
+    display: flex;
+    justify-content: space-between;
+    background-color: #848484;
+    padding: 0.3vw 0.8vw;
+    border-radius: 4,2vw;
+    list-style-type: none;
+}
+
+.showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.7vw;
+}
+
+.showcase li small {
+    margin-left: 0.7vw;
+}
+
+.screen {
+    background-color: #fff;
+    height: 9vh;
+    width: 100%;
+    margin: 1.3vw 0;
+    transform: rotatex(-45deg);
+    box-shadow: 0 0.3vw 0.8vw;
+}
+
+.containerseats {
+    perspective: 84vh;
+    margin-bottom: 2.5vh;
+}
+.seats-text {
+    padding-bottom: 0.4vh;
+    font-size: 1.2vw;
+}
+
+.button-biljetter {
+    margin-top: 1.7vh;
+}
+
+/* Fortsätt knapp */
+.button-fortsatt { 
+    position: relative;
+    padding: 0.8vh 2.1vh;
+    font-size: 1.5vw;
+    font-family: "roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #fff;
+    background-color: #931f1f;
+    border-radius: 2.1vw;
+    border: none;
+    }
+
+.button-fortsatt a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.button-fortsatt a::before {
+    content: '';
+    position: absolute;
+    top: 80%;
+    left: 1.3vw;
+    width: 0;
+    height: 0.2vh;
+    background: #fff;
+    transition: .3s;
+    }
+
+.button-fortsatt a:hover::before {
+    width: 60%;
+}
+
+/* Rubrik "Priser" */
+.h3-priser {
+    font-size: 1.8vw;
+    margin-top: 5vh;
+    margin-bottom: 0.8vh;
+}
+
+/* Text: Priser*/
+.biljettpriser {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'p-priser-typer p-priser-summa';
+    grid-gap: 26.5vw;
+}
+
+.p-priser-typer {
+    font-family: "roboto", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 1.3vw;
+    letter-spacing: 0.11vw;
+    text-align: left;
+}
+
+.p-priser-summa {
+    font-family: "roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.3vw;
+    letter-spacing: 0.11vw;
+    text-align: right;
+}
+
+#section-gradient-biljetter {
+    width: 100%;
+    height: 30vh;
+    background-color: #8b0101;
+    background: linear-gradient(0deg, #8b0101 -20%, #010101 90%); /* deg = degrees/lutning av gradient) */
+}
+
+/* Responsiv design för biljettbokning */
+@media(max-width: 992px) {
+    .body-biljetter {
+        font-size: 2vh;
+    }
+    .seat {
+        width: 1.5vh;
+        height: 1.5vh;
+        margin: 0.4vh;
+        border-top-left-radius: 1.5vh;
+        border-top-right-radius: 1.5vh;
+    }
+    .rubrik {
+        font-size: 64pt;
+    }
+    .seat:nth-of-type(2) {
+        margin-right: 4vh;
+    }
+    .seat:nth-last-of-type(2) {
+        margin-left: 4vh;
+    }
+    .screen {
+        height: 12vh;
+        width: 100%;
+        margin: 1.5vw 0;
+    }
+}
+
+/*------------------------------STYLING AV KONTAKT-SIDA-----------------------------*/
+
+body .kontakt {
+    display: flex;
+    place-items: center;
+}
+
+body a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#kontakta-oss {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+#kontakta-oss h2 {
+    text-align: center;
+    justify-content: center;
+	font-size: 2.7vw;
+    font-weight: 700;
+    margin-top: 6.8vh;
+}
+
+.kontakt-content p {
+	font-weight: 300;
+    text-align: center;
+    font-size: 1.2vw;
+}
+
+.kontaktinfo {
+    display: grid;
+    grid-template-columns: 17vw 17vw 17vw;
+    grid-template-areas:
+    'adress' 'telefon' 'mail';
+    justify-content: center;
+    margin-top: 4.2vh;
+    text-align: center;
+}
+
+
+.adress p {
+    font-size: 1vw;
+    font-weight: 300;
+}
+
+.kontaktinfo h2 {
+    font-family: "bebas-neue-pro", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 2vw;
+    margin-bottom: 2vh;
+}
+
+.kontaktinfo p {
+    font-size: 1vw;
+    font-weight: 300;
+    line-height: 0.8vh;
+}
+
+.norcopiapictures img {
+    width: 16vw;
+    margin-top: 5vh;
+}
+
+#gradient-kontakt {
+    width: 100%;
+    height: 40vh;
+    background-color: #8b0101;
+    background: linear-gradient(0deg, #8b0101 -20%, #010101 70%); /* deg = degrees/lutning av gradient) */
+}
+
+/* Responsiv design för kontaktsidan */
+@media(max-width: 992px) {
+    .h2-kontakta-oss {
+        font-size: 7vw;
+    }
+
+    .kontakt-content p {
+        font-size: 2.3vw;
+    }
+
+    .kontaktinfo {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 10vw 60vw 10vw;
+        grid-template-areas:
+        '. adress .'
+        '. telefon .'
+        '. mail .';
+        justify-content: center;
+        align-items: center;
+        grid-gap: 3vh;
+    }
+
+    .kontaktinfo h2 {
+        font-size: 6vw;
+    }
+
+    .kontaktinfo p {
+        font-size: 3vw;
+        line-height: 1.2vh;
+    }
+
+    .adress {
+        grid-area: adress;
+    }
+
+    .telefon {
+        grid-area: telefon;
+    }
+
+    .mail {
+        grid-area: mail;
+    }
+
+    #gradient-kontakt {
+        width: 100%;
+        height: 10vh;
+        background: linear-gradient(0deg, #8b0101 -20%, #010101 80%); /* deg = degrees/lutning av gradient) */
+    }
+
+}
